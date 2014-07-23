@@ -54,7 +54,15 @@ public class MaskedEditText extends EditText implements TextWatcher {
 		setOnEditorActionListener(new OnEditorActionListener() {
 			@Override
 			public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-				return true;
+				switch(actionId)
+				{
+				case EditorInfo.IME_ACTION_NEXT:
+					return false;
+				case EditorInfo.IME_ACTION_DONE:
+					return false;
+				default:
+					return true;
+				}
 			}
 		});
 	}
